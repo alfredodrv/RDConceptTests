@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="phonegap.js"></script>
+    <script src="Scripts/jquery-2.1.4.js"></script>
+</head>
+<body>
+
+    <p id="result"></p>
+    <h1>Globalization</h1>
+
+    <script type="text/javascript">
+
+        function onDeviceReady() {
+            $('#result').html('<span style="color:green">Device ready!</span>');
+
+            navigator.globalization.getPreferredLanguage(
+                function (language) { alert('language: ' + language.value + '\n'); },
+                function () { alert('Error getting language\n'); }
+            );
+        }
+
+        $(document).ready(function () {
+            console.log("ready!");
+            document.addEventListener("deviceready", onDeviceReady(), false);
+        });
+
+    </script>
+
+</body>
+</html>
